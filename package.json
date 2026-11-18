@@ -1,17 +1,27 @@
 {
   "name": "google",
-  "private": true,
+  "version": "1.0.0",
   "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hyper-code-harness/google"
+  },
   "procs": {
     "src": "src",
     "label": "Google Workspace",
     "icon": "ph-google-logo",
     "optional": true,
     "description": "Access Gmail, Calendar, Docs, Drive, Sheets, Tasks, and Workspace Directory through shared Google authentication.",
-    "domains": ["docs.google.com", "drive.google.com"]
+    "domains": [
+      "docs.google.com",
+      "drive.google.com"
+    ]
   },
   "dependencies": {
     "marked": "^18.0.7"
   },
-  "devDependencies": {}
+  "devDependencies": {},
+  "scripts": {
+    "test": "bun ${HYPER_CODE:-../hyper-code}/script/plugin-test.ts ."
+  }
 }

@@ -1,13 +1,11 @@
 import { afterEach, describe, expect, test } from "bun:test";
-import { mkTestCtx } from "../../../../src/_testCtx.entry";
+import { testCtx } from "hyper:test";
 
 const originalFetch = globalThis.fetch;
 afterEach(() => { globalThis.fetch = originalFetch; });
 
 async function makeCtx() {
-    // the google plugin is not core: mount the official plugins, like the other plugin tests
-    return mkTestCtx({ env: {
-        PROCS_PLUGINS: "./plugins",
+    return testCtx({ env: {
         HYPER_OAUTH_ENCRYPTION_KEY: Buffer.alloc(32, 21).toString("base64"),
         GOOGLE_ACCOUNT: "niquola@gmail.com",
     } });
